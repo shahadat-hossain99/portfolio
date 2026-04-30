@@ -1,26 +1,135 @@
 @import "tailwindcss";
+@plugin "daisyui";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-base-100: var(--b1);
+  --color-base-200: var(--b2);
+  --color-base-300: var(--b3);
+  --color-base-content: var(--bc);
+
+  --font-display: "Poppins", sans-serif;
+  --font-body: "Inter", sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Enable class-based dark mode in Tailwind v4 */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* DaisyUI Plugin Config */
+@plugin "daisyui" {
+  themes: shahadat, shahadat-dark, emerald, forest;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Custom Theme: Shahadat (Light) */
+:root,
+html[data-theme="shahadat"],
+html[data-theme="emerald"] {
+  --primary: #0f5550;
+  --secondary: #40674e;
+  --accent: #713e2a;
+  --b1: #f2fedb;
+  --b2: #ebf6d1;
+  --b3: #e0ebb9;
+  --bc: #151e09;
+
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-base-100: var(--b1);
+  --color-base-200: var(--b2);
+  --color-base-300: var(--b3);
+  --color-base-content: var(--bc);
+
+  --p: 175 70% 20%;
+  --s: 142 24% 33%;
+  --a: 17 45% 30%;
+  --n: 82 54% 8%;
+  --b1-hsl: 82 78% 93%;
+
+  --nav-bg: rgba(242, 254, 219, 0.8);
+  --nav-bg-sticky: rgba(242, 254, 219, 0.95);
+}
+
+/* Custom Theme: Shahadat (Dark) */
+html[data-theme="shahadat-dark"],
+html[data-theme="forest"] {
+  --primary: #2ed1c5;
+  --secondary: #89b398;
+  --accent: #ffb4a2;
+  --b1: #0a0f05;
+  --b2: #151e09;
+  --b3: #1f2d0e;
+  --bc: #f2fedb;
+
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-base-100: var(--b1);
+  --color-base-200: var(--b2);
+  --color-base-300: var(--b3);
+  --color-base-content: var(--bc);
+
+  --p: 175 64% 50%;
+  --s: 142 20% 62%;
+  --a: 11 100% 82%;
+  --n: 82 78% 93%;
+  --b1-hsl: 82 54% 5%;
+
+  --nav-bg: rgba(10, 15, 5, 0.8);
+  --nav-bg-sticky: rgba(10, 15, 5, 0.95);
+}
+
+@layer base {
+  html {
+    background-color: var(--b1);
+    color: var(--bc);
+    transition:
+      background-color 0.5s ease,
+      color 0.5s ease;
+  }
+
+  body {
+    @apply antialiased min-h-screen;
+    background-color: transparent;
+    font-family: var(--font-body);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+    color: var(--bc);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Explicit Utility Overrides to guarantee theme adoption */
+@layer utilities {
+  .bg-base-100 {
+    background-color: var(--color-base-100) !important;
+  }
+  .bg-base-200 {
+    background-color: var(--color-base-200) !important;
+  }
+  .bg-base-300 {
+    background-color: var(--color-base-300) !important;
+  }
+  .text-base-content {
+    color: var(--color-base-content) !important;
+  }
+}
+
+.glass-nav {
+  @apply sticky top-0 w-full z-50 backdrop-blur-md border-b border-base-content/10 shadow-sm transition-all duration-300;
+  background-color: var(--nav-bg);
+}
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 24px;
 }
