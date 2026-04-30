@@ -112,7 +112,7 @@ const Navbar = () => {
       ref={headerRef}
       className="fixed top-0 w-full z-50 backdrop-blur-md border-b border-base-content/10 transition-all duration-300 h-20 flex items-center bg-base-100/80"
     >
-      <nav className="max-w-[1200px] mx-auto w-full flex justify-between items-center px-4 md:px-8">
+      <nav className="max-w-300 mx-auto w-full flex justify-between items-center px-4 md:px-8">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
