@@ -1,18 +1,29 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+import { FaFacebook, FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa6";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { name: "GitHub", url: "https://github.com/shahadat-hossain99" },
+    {
+      name: " GitHub",
+      url: "https://github.com/shahadat-hossain99",
+      logo: <FaGithub />,
+    },
+
     {
       name: "LinkedIn",
       url: "https://www.linkedin.com/in/md-shahadat-hossain-coder/",
+      logo: <FaLinkedin />,
     },
-    { name: "Facebook", url: "#" }, // Or Twitter if preferred
-    { name: "WhatsApp", url: "https://wa.me/+8801709318940" },
+    { name: "Facebook", url: "#", logo: <FaFacebook /> }, // Or Twitter if preferred
+    {
+      name: "WhatsApp",
+      url: "https://wa.me/+8801709318940",
+      logo: <FaWhatsapp />,
+    },
   ];
 
   return (
@@ -47,7 +58,11 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="text-base-content/60 hover:text-primary transition-colors duration-300 font-bold text-[10px] md:text-xs uppercase tracking-[0.2em]"
               >
-                {platform.name}
+                <div className="flex items-center gap-2.5">
+                  {" "}
+                  {platform.logo}
+                  {platform.name}
+                </div>
               </motion.a>
             ))}
           </nav>

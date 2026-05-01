@@ -84,7 +84,7 @@ const Contact = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 + i * 0.1 }}
-                className="flex items-center gap-6 group cursor-pointer"
+                className="flex items-center gap-6 group cursor-pointer flex-wrap"
               >
                 <div className="w-14 h-14 rounded-2xl bg-white/60 flex items-center justify-center group-hover:bg-white group-hover:text-primary transition-all duration-300">
                   <span className="material-symbols-outlined text-2xl">

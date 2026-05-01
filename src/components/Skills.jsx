@@ -59,59 +59,59 @@ const skillData = [
   // Tools & Others
   {
     name: "Git",
-    category: "Tools & Others",
+    category: "Tools",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
   },
   {
     name: "GitHub",
-    category: "Tools & Others",
+    category: "Tools",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
   },
   {
     name: "VS Code",
-    category: "Tools & Others",
+    category: "Tools",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg",
   },
   {
     name: "Figma",
-    category: "Tools & Others",
+    category: "Tools",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",
   },
   {
     name: "Vite",
-    category: "Tools & Others",
+    category: "Tools",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vitejs/vitejs-original.svg",
   },
   {
     name: "Postman",
-    category: "Tools & Others",
+    category: "Tools",
     icon: "https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg",
   },
   {
     name: "NPM",
-    category: "Tools & Others",
+    category: "Tools",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg",
   },
   {
     name: "Obsidian",
-    category: "Tools & Others",
+    category: "Tools",
     icon: "https://upload.wikimedia.org/wikipedia/commons/1/10/2023_Obsidian_logo.svg",
   },
   {
     name: "Vercel",
-    category: "Tools & Others",
+    category: "Tools",
     icon: "https://www.vectorlogo.zone/logos/vercel/vercel-icon.svg",
   },
   {
     name: "Netlify",
-    category: "Tools & Others",
+    category: "Tools",
     icon: "https://www.vectorlogo.zone/logos/netlify/netlify-icon.svg",
   },
 ];
 
 const Skills = () => {
   const [activeTab, setActiveTab] = useState("Frontend");
-  const categories = ["Frontend", "Backend", "Tools & Others"];
+  const categories = ["Frontend", "Backend", "Tools"];
 
   const filteredSkills = skillData.filter(
     (skill) => skill.category === activeTab,

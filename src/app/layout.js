@@ -16,32 +16,25 @@ const inter = Inter({
 
 export const metadata = {
   title: "Shahadat Hossain | Portfolio",
-  description: "Full-stack developer dedicated to building responsive, high-performance web applications.",
+  description:
+    "Full-stack developer dedicated to building responsive, high-performance web applications.",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${poppins.variable} ${inter.variable} scroll-smooth`}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${poppins.variable} ${inter.variable} scroll-smooth`}
+    >
       <head>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" />
-        <script dangerouslySetInnerHTML={{
-          __html: `
-            (function() {
-              try {
-                const savedTheme = localStorage.getItem('theme') || 'shahadat';
-                document.documentElement.setAttribute('data-theme', savedTheme);
-                if (savedTheme === 'shahadat-dark') {
-                  document.documentElement.classList.add('dark');
-                }
-              } catch (e) {}
-            })()
-          `
-        }} />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        />
       </head>
       <body className="antialiased">
-        <SmoothScroll>
-          {children}
-        </SmoothScroll>
+        <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>
   );
