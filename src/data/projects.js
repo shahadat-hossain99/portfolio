@@ -6,7 +6,7 @@ export const projects = [
       "A personalized reading tracker and book discovery platform for bibliophiles to manage their library, track reading progress, and discover new books.",
     image:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuB-50JjytXNJFKykWCqCgNbqLjGSFiVlIWVR7RNPqCwdQ7zI64V8cPoLG8xfcCEXai5oYyavyb5Ld3gbxYQ7GXfdk5cJfiT64qtk4cnm-nnF6ASWCxWlCoiqFAvb8p6SzVyRKeVmAqw4A_WzKDFAOtuJAzbj52E3vLsU55mOHdIFcvVjVfuY3CY_s8Ye7x9y7rK3revBQEhIn2ee9lB49boAIZcqRXRp60-JKjbH051MvNylWMGRv_vVZwbeTt1gpbIU3ovhA6qCH4",
-    tags: ["React", "Firebase", "Tailwind CSS"],
+    tags: ["React", "Daisy UI", "Tailwind CSS", "React Icons"],
     demo: "https://book-vibe-platform.netlify.app/",
     github: "https://github.com/shahadat-hossain99/book-vibe",
     challenges: [
@@ -48,7 +48,7 @@ export const projects = [
       "A high-performance personal portfolio built with Next.js 16, featuring smooth GSAP + Framer Motion animations, dark/light theme toggle, and fully responsive design.",
     image:
       "https://lh3.googleusercontent.com/aida-public/AB6AXuCdBqpN39ScEbrhhmv5DCqEwqY3S4_t3DdX5pOVqtUdPMsB3Is-z0RcZC26a0FUxmTzeAM3SCrYX94nHAR29KE4v7vFjzJCfFtDY_8va-RBnXG324JSHAO9cFTKX1OEoWSAaw2MhnnKH2OVS3a_blVPqUgm8J7VsuFs0iIEL3CjvxxRhVSneZp5xkgfWe606vdxeeihaHLMGu1KOQJAZO6B_SSQ5mpK_XodwKYlEd0cLqkUyOiWddMYU3McU6LtfZe_17bJMLXLMwI",
-    tags: ["Next.js", "Framer Motion", "GSAP", "Tailwind CSS"],
+    tags: ["Next.js", "Framer Motion", "GSAP", "Lenis"],
     demo: "https://shahadat-portfolio-999.vercel.app/",
     github: "https://github.com/shahadat-hossain99/portfolio",
     challenges: [
