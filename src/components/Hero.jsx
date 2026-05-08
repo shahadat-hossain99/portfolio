@@ -61,7 +61,7 @@ const Hero = () => {
     <section
       id="home"
       ref={containerRef}
-      className="min-h-screen pt-30 pb-[80px] flex flex-col md:flex-row items-center justify-between gap-12"
+      className="min-h-screen pt-30 pb-20 flex flex-col md:flex-row items-center justify-between gap-12"
     >
       <div className="md:w-1/2 space-y-8">
         <motion.div
@@ -78,7 +78,7 @@ const Hero = () => {
           ref={textRef}
           className="font-display text-4xl md:text-7xl font-bold text-on-background leading-tight"
         >
-          Hi, I'm <span className="text-primary">Shahadat Hossain</span>
+          Hi, I&apos;m <span className="text-primary">Shahadat Hossain</span>
         </h1>
 
         <motion.p
