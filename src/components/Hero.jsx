@@ -94,6 +94,12 @@ const Hero = () => {
 
         <div className="flex flex-col sm:flex-row gap-6 pt-4">
           <motion.button
+            onClick={() => {
+              const link = document.createElement("a");
+              link.href = "/resume.pdf";
+              link.download = "Shahadat_Hossain_Resume.pdf";
+              link.click();
+            }}
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
             initial={{ opacity: 0, x: -20 }}
