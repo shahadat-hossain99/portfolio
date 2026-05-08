@@ -193,7 +193,16 @@ const Navbar = () => {
                 </li>
               ))}
               <li className="pt-2 mt-2 border-t border-base-200">
-                <button className="btn btn-primary btn-sm w-full rounded-xl">
+                <button
+                  onClick={() => {
+                    document
+                      .getElementById("contact")
+                      ?.scrollIntoView({ behavior: "smooth" });
+                  }}
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="btn btn-primary btn-sm w-full rounded-xl"
+                >
                   Hire Me
                 </button>
               </li>
