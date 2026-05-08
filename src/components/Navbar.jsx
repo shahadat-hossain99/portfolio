@@ -210,7 +210,12 @@ const Navbar = () => {
           </div>
 
           <motion.button
-            whileHover={{ scale: 1.05 }}
+            onClick={() => {
+              document
+                .getElementById("contact")
+                ?.scrollIntoView({ behavior: "smooth" });
+            }}
+            whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
             className="hidden sm:flex btn btn-primary btn-sm md:btn-md px-6 rounded-xl font-medium shadow-lg shadow-primary/20"
           >
