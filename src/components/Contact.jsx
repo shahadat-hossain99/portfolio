@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import emailjs from "@emailjs/browser";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 
 const Contact = () => {
   const buttonRef = useRef(null);
@@ -199,6 +199,7 @@ const Contact = () => {
           </form>
         </div>
       </motion.div>
+      <ToastContainer />
     </section>
   );
 };
