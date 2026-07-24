@@ -5,6 +5,15 @@ import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+const navItems = [
+  "Home",
+  "About",
+  "Skills",
+  "Projects",
+  "Education",
+  "Contact",
+];
+
 const Navbar = () => {
   const headerRef = useRef(null);
   const [theme, setTheme] = useState("shahadat");
@@ -73,14 +82,8 @@ const Navbar = () => {
       observerCallback,
       observerOptions,
     );
-    const sections = [
-      "home",
-      "about",
-      "skills",
-      "projects",
-      "experience",
-      "contact",
-    ];
+
+    const sections = navItems.map((item) => item.toLowerCase());
 
     sections.forEach((section) => {
       const element = document.getElementById(section);
@@ -112,73 +115,73 @@ const Navbar = () => {
       ref={headerRef}
       className="fixed top-0 w-full z-50 backdrop-blur-md border-b border-base-content/10 transition-all duration-300 h-20 flex items-center bg-base-100/80"
     >
-      <nav className="max-w-300 mx-auto w-full flex justify-between items-center px-4 md:px-8">
+      <nav className="max-w-7xl mx-auto w-full flex justify-between items-center px-4 md:px-9">
+        {/* Logo */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="text-2xl font-bold text-primary font-display"
+          className="text-xl sm:text-2xl lg:text-3xl font-extrabold font-mono tracking-tight"
         >
-          Shahadat.
+          <span className="text-primary">&lt;</span>
+          <span className="text-primary">Shahadat</span>
+          <span className="text-primary">/&gt;</span>
         </motion.div>
 
-        <div className="hidden md:flex gap-8 font-display text-sm tracking-wide">
-          {["Home", "About", "Skills", "Projects", "Experience", "Contact"].map(
-            (item, i) => (
-              <motion.a
-                key={item}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 1 + i * 0.1 }}
-                className={`relative group font-medium transition-colors ${
-                  activeSection === item
-                    ? "text-primary"
-                    : "text-base-content/80 hover:text-primary"
+        {/* Desktop Links (Hidden on Tablet/Mobile, visible at lg: 1024px) */}
+        <div className="hidden lg:flex gap-6 lg:gap-8 font-display text-sm tracking-wide">
+          {navItems.map((item, i) => (
+            <motion.a
+              key={item}
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 1 + i * 0.1 }}
+              className={`relative group font-medium transition-colors ${
+                activeSection === item
+                  ? "text-primary"
+                  : "text-base-content/80 hover:text-primary"
+              }`}
+              href={`#${item.toLowerCase()}`}
+            >
+              {item}
+              <span
+                className={`absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300 ${
+                  activeSection === item ? "w-full" : "w-0 group-hover:w-full"
                 }`}
-                href={`#${item.toLowerCase()}`}
-              >
-                {item}
-                <span
-                  className={`absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300 ${
-                    activeSection === item ? "w-full" : "w-0 group-hover:w-full"
-                  }`}
-                ></span>
-              </motion.a>
-            ),
-          )}
+              ></span>
+            </motion.a>
+          ))}
         </div>
 
-        <div className="flex items-center gap-2 md:gap-4">
+        {/* Actions & Mobile/Tablet Trigger */}
+        <div className="flex items-center gap-2 md:gap-3">
+          {/* Theme Switcher Button */}
           <motion.button
             onClick={toggleTheme}
             whileHover={{ scale: 1.1, rotate: 10 }}
             whileTap={{ scale: 0.9 }}
             className="btn btn-ghost btn-circle text-primary"
+            aria-label="Toggle theme"
           >
             <span className="material-symbols-outlined text-2xl">
               {theme === "shahadat" ? "dark_mode" : "light_mode"}
             </span>
           </motion.button>
 
-          <div className="dropdown dropdown-end md:hidden">
+          {/* Mobile & Tablet Dropdown Menu (Visible under 1024px) */}
+          <div className="dropdown dropdown-end lg:hidden">
             <label
               tabIndex={0}
               className="btn btn-ghost btn-circle text-primary"
+              aria-label="Open navigation menu"
             >
               <span className="material-symbols-outlined text-2xl">menu</span>
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-4 shadow-2xl bg-base-100/95 backdrop-blur-xl rounded-2xl w-64 border border-base-200 font-display space-y-2"
+              className="menu menu-sm dropdown-content mt-3 z-1 p-4 shadow-2xl bg-base-100/95 backdrop-blur-xl rounded-2xl w-64 border border-base-200 font-display space-y-2"
             >
-              {[
-                "Home",
-                "About",
-                "Skills",
-                "Projects",
-                "Experience",
-                "Contact",
-              ].map((item) => (
+              {navItems.map((item) => (
                 <li key={item}>
                   <a
                     href={`#${item.toLowerCase()}`}
@@ -192,15 +195,15 @@ const Navbar = () => {
                   </a>
                 </li>
               ))}
-              <li className="pt-2 mt-2 border-t border-base-200">
+              <li className="pt-2 mt-2 border-t border-base-200 sm:hidden">
                 <motion.button
                   onClick={() => {
                     document
                       .getElementById("contact")
                       ?.scrollIntoView({ behavior: "smooth" });
                   }}
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                   className="btn btn-primary btn-sm w-full rounded-xl"
                 >
                   Hire Me
@@ -209,6 +212,7 @@ const Navbar = () => {
             </ul>
           </div>
 
+          {/* Hire Me CTA Button */}
           <motion.button
             onClick={() => {
               document
@@ -217,7 +221,7 @@ const Navbar = () => {
             }}
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
-            className="hidden sm:flex btn btn-primary btn-sm md:btn-md px-6 rounded-xl font-medium shadow-lg shadow-primary/20"
+            className="hidden sm:flex btn btn-primary btn-sm md:btn-md px-5 md:px-6 rounded-xl font-medium shadow-lg shadow-primary/20"
           >
             Hire Me
           </motion.button>
