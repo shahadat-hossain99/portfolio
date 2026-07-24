@@ -55,7 +55,7 @@ html[data-theme="emerald"] {
 /* Custom Theme: Shahadat (Dark) */
 html[data-theme="shahadat-dark"],
 html[data-theme="forest"] {
-  --primary: #2ed1c5;
+  --primary: #00c9bc;
   --secondary: #89b398;
   --accent: #ffb4a2;
   --b1: #0a0f05;
