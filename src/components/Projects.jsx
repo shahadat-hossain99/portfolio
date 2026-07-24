@@ -170,7 +170,7 @@ const Projects = () => {
               <div className="flex items-center gap-3 mt-auto pt-4 border-t border-base-200/60">
                 <Link
                   href={`/projects/${project.id}`}
-                  className="btn btn-primary flex-1 h-11 min-h-[44px] rounded-xl text-sm font-medium"
+                  className="btn btn-primary flex-1 h-11 min-h-11 rounded-xl text-sm font-medium"
                 >
                   View Details
                 </Link>
@@ -179,7 +179,7 @@ const Projects = () => {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn btn-outline border-base-300 flex-1 h-11 min-h-[44px] rounded-xl text-sm font-medium hover:bg-base-200 hover:text-base-content"
+                    className="btn btn-outline border-base-300 flex-1 h-11 min-h-11 rounded-xl text-sm font-medium hover:bg-base-200 hover:text-base-content"
                   >
                     GitHub
                   </a>

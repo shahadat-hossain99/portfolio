@@ -67,7 +67,7 @@ export const projects = [
     title: "TrailNest",
     description:
       "A full-stack outdoor gear and campsite booking platform. Users browse campsites and rentable gear on an interactive map, book them for a date range with conflict-checked availability, manage their own listings with image uploads, and track bookings from a personal dashboard with visual analytics.",
-    image: "/projects/trailnest02.jpg",
+    image: "/projects/trailnest03.jpg",
     tags: [
       "Next.js 16",
       "TypeScript",
@@ -94,7 +94,7 @@ export const projects = [
     title: "BloodSync",
     description:
       "A full-stack blood donation management platform bridging donors and recipients. Users can register as donors, create donation requests, search for compatible donors by blood group and location, and fund the organization through in-app donations.",
-    image: "/projects/bloodsync.jpg",
+    image: "/projects/bloodsync02.jpg",
     tags: [
       "Next.js",
       "Express",
