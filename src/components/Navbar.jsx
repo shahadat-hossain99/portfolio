@@ -41,15 +41,40 @@ const Navbar = () => {
   });
 
   // Initial Theme & Mounting Setup
+  // useEffect(() => {
+  //   // eslint-disable-next-line react-hooks/set-state-in-effect
+  //   setMounted(true);
+  //   const savedTheme = localStorage.getItem("theme") || "shahadat";
+  //   setTheme(savedTheme);
+  //   document.documentElement.setAttribute("data-theme", savedTheme);
+  //   document.documentElement.classList.toggle(
+  //     "dark",
+  //     savedTheme === "shahadat-dark",
+  //   );
+  // }, []);
+
+  // Initial Theme & Mounting Setup with System Preference Detection
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
-    const savedTheme = localStorage.getItem("theme") || "shahadat";
-    setTheme(savedTheme);
-    document.documentElement.setAttribute("data-theme", savedTheme);
+
+    // 1. Check localStorage first
+    let currentTheme = localStorage.getItem("theme");
+
+    // 2. If no saved theme, fallback to OS system preference
+    if (!currentTheme) {
+      const prefersDark = window.matchMedia(
+        "(prefers-color-scheme: dark)",
+      ).matches;
+      currentTheme = prefersDark ? "shahadat-dark" : "shahadat";
+    }
+
+    // 3. Update React state and DOM attributes
+    setTheme(currentTheme);
+    document.documentElement.setAttribute("data-theme", currentTheme);
     document.documentElement.classList.toggle(
       "dark",
-      savedTheme === "shahadat-dark",
+      currentTheme === "shahadat-dark",
     );
   }, []);
 

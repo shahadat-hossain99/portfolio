@@ -179,7 +179,7 @@ const Skills = () => {
   return (
     <section
       id="skills"
-      className="w-full overflow-hidden bg-base-100 px-4 py-20 sm:px-6 sm:py-24 md:py-28 lg:px-8 lg:py-30"
+      className="w-full overflow-hidden bg-base-100 px-4 py-14 sm:px-6  lg:px-8 lg:py-20"
     >
       <div className="mx-auto w-full max-w-300">
         {/* ================================

@@ -32,6 +32,28 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         />
+        {/* Instant synchronous theme evaluation before paint */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var savedTheme = localStorage.getItem('theme');
+                  if (!savedTheme) {
+                    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    savedTheme = prefersDark ? 'shahadat-dark' : 'shahadat';
+                  }
+                  document.documentElement.setAttribute('data-theme', savedTheme);
+                  if (savedTheme === 'shahadat-dark') {
+                    document.documentElement.classList.add('dark');
+                  } else {
+                    document.documentElement.classList.remove('dark');
+                  }
+                } catch (e) {}
+              })();
+            `,
+          }}
+        />
       </head>
       <body className="antialiased">
         <SmoothScroll>{children}</SmoothScroll>

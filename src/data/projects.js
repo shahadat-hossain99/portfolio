@@ -9,6 +9,12 @@ export const projects = [
   //   tags: ["React", "Daisy UI", "Tailwind CSS", "React Icons"],
   //   demo: "https://book-vibe-platform.netlify.app/",
   //   github: "https://github.com/shahadat-hossain99/book-vibe",
+  //   features: [
+  //     "Personalized library management and reading status tracking",
+  //     "Search and filtering powered by Google Books API integration",
+  //     "Responsive grid layout optimized for mobile and desktop screens",
+  //     "Custom book review and rating input forms"
+  //   ],
   //   challenges: [
   //     "Implementing real-time sync across devices using Firebase Firestore without performance issues.",
   //     "Building a responsive book grid layout that works seamlessly on both mobile and desktop.",
@@ -30,6 +36,12 @@ export const projects = [
   //   tags: ["Next.js", "Recharts", "DaisyUI", "Context API"],
   //   demo: "https://a07-keen-keeper-nine.vercel.app/",
   //   github: "https://github.com/shahadat-hossain99/a07-keen-keeper",
+  //   features: [
+  //     "Interactive relationship health status indicators (On Track / Overdue)",
+  //     "Visual analytics and communication frequency graphs via Recharts",
+  //     "Detailed interaction logs with timeline history",
+  //     "Global state architecture using React Context API"
+  //   ],
   //   challenges: [
   //     "Managing complex global state across many components using React Context API without prop drilling.",
   //     "Designing an intuitive status tracking system (On Track / Overdue / Action Due) with dynamic color coding.",
@@ -51,6 +63,12 @@ export const projects = [
   //   tags: ["Next.js", "Framer Motion", "GSAP", "Lenis"],
   //   demo: "https://shahadat-portfolio-999.vercel.app/",
   //   github: "https://github.com/shahadat-hossain99/portfolio",
+  //   features: [
+  //     "Staggered entrance and scroll-driven GSAP + Framer Motion animations",
+  //     "Smooth page scrolling experience using Lenis",
+  //     "Zero-flicker dark/light mode toggle",
+  //     "Direct CV download and smooth-scroll section routing"
+  //   ],
   //   challenges: [
   //     "Combining GSAP ScrollTrigger and Framer Motion without animation conflicts.",
   //     "Implementing a flicker-free dark mode without any third-party theme libraries.",
@@ -78,6 +96,13 @@ export const projects = [
     ],
     demo: "https://trailnest-client.vercel.app/",
     github: "https://github.com/shahadat-hossain99/trailnest-client",
+    features: [
+      "Interactive Leaflet mapping with clustered campsite and gear pinpoints",
+      "Server-side conflict-checked date-range booking system",
+      "Listing management dashboard with image upload support",
+      "BetterAuth authentication integrated with separate Express + MongoDB API",
+      "Personal booking track and visual usage analytics",
+    ],
     challenges: [
       "Building an interactive Leaflet map with clustered campsite/gear listings that stays performant on mobile.",
       "Implementing conflict-checked date-range booking so overlapping reservations on the same listing are rejected server-side.",
@@ -106,6 +131,13 @@ export const projects = [
     ],
     demo: "https://bloodsync-every-drop-counts.vercel.app/",
     github: "https://github.com/shahadat-hossain99/bloodsync-client",
+    features: [
+      "Donor registration and blood group & location-based search filtering",
+      "Real-time blood donation request creation and tracking",
+      "Integrated Stripe sandbox payment gateway for monetary contributions",
+      "Role-based management dashboards featuring live stats with Recharts",
+      "Two-step authenticated onboarding flow powered by BetterAuth",
+    ],
     challenges: [
       "Building a custom DOM-injected toast notification system after react-toastify's CSS conflicted with the design system.",
       "Debugging a two-step registration flow where a proxy middleware was silently interrupting the BetterAuth sign-up plus custom user-profile creation.",
@@ -126,6 +158,13 @@ export const projects = [
     tags: ["Next.js", "HeroUI", "Express", "MongoDB", "BetterAuth", "JWT"],
     demo: "https://studynook-frontend-go-beyound.vercel.app/",
     github: "https://github.com/shahadat-hossain99/studynook-frontend",
+    features: [
+      "Google OAuth sign-in and JWKS token verification via BetterAuth",
+      "Real-time study space discovery with granular attribute filtering",
+      "Automated server-side conflict detection (room, date, and time slot)",
+      "Secure owner-based authorization pattern across protected API routes",
+      "User reservation management console",
+    ],
     challenges: [
       "Verifying JWTs issued by BetterAuth against a JWKS endpoint from a separate Express backend.",
       "Designing an ownership-security pattern (storing ownerUserId at creation, then find-check-act on every protected route) reused across later projects.",

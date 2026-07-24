@@ -50,11 +50,7 @@ const Projects = () => {
   }, []);
 
   return (
-    <section
-      id="projects"
-      ref={sectionRef}
-      className="py-24 md:py-32 px-4 md:px-0"
-    >
+    <section id="projects" ref={sectionRef} className="py-14 px-4 md:px-0">
       {/* Header Section */}
       <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-16 gap-6">
         <div className="text-center md:text-left">
