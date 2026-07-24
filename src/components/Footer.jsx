@@ -18,7 +18,7 @@ const Footer = () => {
       url: "https://www.linkedin.com/in/md-shahadat-hossain-coder/",
       logo: <FaLinkedin />,
     },
-    { name: "Facebook", url: "#", logo: <FaFacebook /> }, // Or Twitter if preferred
+    // { name: "Facebook", url: "#", logo: <FaFacebook /> }, // Or Twitter if preferred
     {
       name: "WhatsApp",
       url: "https://wa.me/+8801709318940",

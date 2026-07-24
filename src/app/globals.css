@@ -9,6 +9,7 @@
   --color-base-200: var(--b2);
   --color-base-300: var(--b3);
   --color-base-content: var(--bc);
+  --color-primary-content: var(--primary-content);
 
   --font-display: "Poppins", sans-serif;
   --font-body: "Inter", sans-serif;
@@ -33,6 +34,7 @@ html[data-theme="emerald"] {
   --b2: #ebf6d1;
   --b3: #e0ebb9;
   --bc: #151e09;
+  --primary-content: #f2fedb;
 
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
@@ -41,6 +43,7 @@ html[data-theme="emerald"] {
   --color-base-200: var(--b2);
   --color-base-300: var(--b3);
   --color-base-content: var(--bc);
+  --color-primary-content: var(--primary-content);
 
   --p: 175 70% 20%;
   --s: 142 24% 33%;
@@ -55,13 +58,14 @@ html[data-theme="emerald"] {
 /* Custom Theme: Shahadat (Dark) */
 html[data-theme="shahadat-dark"],
 html[data-theme="forest"] {
-  --primary: #00c9bc;
+  --primary: #2ed1c5;
   --secondary: #89b398;
   --accent: #ffb4a2;
   --b1: #0a0f05;
   --b2: #151e09;
   --b3: #1f2d0e;
   --bc: #f2fedb;
+  --primary-content: #05201d;
 
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
@@ -70,6 +74,7 @@ html[data-theme="forest"] {
   --color-base-200: var(--b2);
   --color-base-300: var(--b3);
   --color-base-content: var(--bc);
+  --color-primary-content: var(--primary-content);
 
   --p: 175 64% 50%;
   --s: 142 20% 62%;

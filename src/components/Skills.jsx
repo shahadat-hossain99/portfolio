@@ -195,7 +195,7 @@ const Skills = () => {
           </div>
 
           {/* Main Heading */}
-          <h2 className="mb-7 font-display text-3xl font-bold leading-tight sm:text-4xl md:mb-9 md:text-5xl">
+          <h2 className="mb-6 font-display text-3xl font-bold leading-tight  md:mb-9 sm:text-4xl lg:text-5xl">
             Skills & Technologies
           </h2>
 
