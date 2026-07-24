@@ -104,20 +104,16 @@ const About = () => {
             className="space-y-6 text-left lg:col-span-7"
           >
             <h3 className="mb-4 text-2xl font-bold leading-tight text-primary sm:text-3xl md:text-4xl lg:text-3xl">
-              I&apos;m Md. Shahadat Hossain, a {/*   Frontend Developer and */}{" "}
-              MERN Stack Developer from Bangladesh.
+              I&apos;m Md. Shahadat Hossain, a MERN Stack Developer from
+              Bangladesh.
             </h3>
 
             <p className="text-base leading-relaxed text-base-content/80 sm:text-lg">
               My journey into web development began in late 2025 with a
-              curiosity about how modern websites are built. Alongside my
-              studies at{" "}
-              <span className="font-medium text-primary">
-                National University
-              </span>
-              , I&apos;ve been building my skills through hands-on projects and
-              continuous learning. I specialize in modern web technologies and
-              enjoy turning ideas into responsive, accessible, and user-focused
+              curiosity about how modern websites are built. I&apos;ve been
+              building my skills through hands-on projects and continuous
+              learning. I specialize in modern web technologies and enjoy
+              turning ideas into responsive, accessible, and user-focused
               digital experiences.
             </p>
 
@@ -126,14 +122,22 @@ const About = () => {
               <span className="font-medium text-primary">
                 React and Next.js ecosystem
               </span>
-              , while also exploring the full-stack side of development with
-              Node.js, Express, and MongoDB. I enjoy solving real-world
-              problems, building reusable components, creating intuitive user
-              interfaces, and continuously improving the quality of my code.
+              , while also exploring full-stack development with Node.js,
+              Express, and MongoDB. I enjoy solving real-world problems,
+              building reusable components, and creating intuitive user
+              interfaces with clean code.
+            </p>
+
+            {/* Hobbies & Personal Interests */}
+            <p className="text-base leading-relaxed text-base-content/80 sm:text-lg">
+              When I&apos;m not coding, you&apos;ll often find me exploring the
+              latest PC hardware configurations, optimizing computer
+              performance, or learning about emerging web technologies. I enjoy
+              tinkering with setups and staying up-to-date with tech trends.
             </p>
 
             {/* Developer Philosophy */}
-            <div className="rounded-2xl border-l-4 border-primary bg-base-200/50 p-5 text-base italic leading-relaxed text-base-content/70 sm:p-6">
+            <div className="rounded-2xl border-l-4 border-primary bg-base-200/50 p-5 text-base italic leading-relaxed text-base-content/70 sm:p-6  shadow-lg shadow-primary">
               &quot;I believe great web experiences come from the balance of
               thoughtful design, clean code, and attention to detail. I&apos;m
               always curious, always learning, and always looking for new

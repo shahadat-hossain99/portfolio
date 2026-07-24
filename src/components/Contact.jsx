@@ -9,13 +9,13 @@ import { toast, ToastContainer } from "react-toastify";
 // copy: shown for anything with a literal value worth copying.
 // href: shown as a separate "open" action for anything with somewhere to go.
 const ITEMS = [
-  // {
-  //   icon: "mail",
-  //   title: "Email",
-  //   subtitle: "shahadatfolio@gmail.com",
-  //   copyValue: "shahadatfolio@gmail.com",
-  //   href: "mailto:shahadatfolio@gmail.com",
-  // },
+  {
+    icon: "mail",
+    title: "Email",
+    subtitle: "shahadatfolio@gmail.com",
+    copyValue: "shahadatfolio@gmail.com",
+    href: "mailto:shahadatfolio@gmail.com",
+  },
   {
     icon: "code",
     title: "GitHub",
@@ -37,13 +37,13 @@ const ITEMS = [
     copyValue: "+880 1533764047",
     href: "tel:+8801533764047",
   },
-  {
-    icon: "location_on",
-    title: "Location",
-    subtitle: "Bangladesh",
-    copyValue: "Bangladesh",
-    href: null,
-  },
+  // {
+  //   icon: "location_on",
+  //   title: "Location",
+  //   subtitle: "Bangladesh",
+  //   copyValue: "Bangladesh",
+  //   href: null,
+  // },
 ];
 
 const FIELDS = [
