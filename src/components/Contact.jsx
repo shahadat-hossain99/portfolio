@@ -9,12 +9,26 @@ import { toast, ToastContainer } from "react-toastify";
 // copy: shown for anything with a literal value worth copying.
 // href: shown as a separate "open" action for anything with somewhere to go.
 const ITEMS = [
+  // {
+  //   icon: "mail",
+  //   title: "Email",
+  //   subtitle: "shahadatfolio@gmail.com",
+  //   copyValue: "shahadatfolio@gmail.com",
+  //   href: "mailto:shahadatfolio@gmail.com",
+  // },
   {
-    icon: "mail",
-    title: "Email",
-    subtitle: "shahadatfolio@gmail.com",
-    copyValue: "shahadatfolio@gmail.com",
-    href: "mailto:shahadatfolio@gmail.com",
+    icon: "code",
+    title: "GitHub",
+    subtitle: "Explore my projects",
+    copyValue: "https://github.com/shahadat-hossain99",
+    href: "https://github.com/shahadat-hossain99",
+  },
+  {
+    icon: "work",
+    title: "LinkedIn",
+    subtitle: "Connect with me",
+    copyValue: "https://www.linkedin.com/in/md-shahadat-hossain-coder",
+    href: "https://www.linkedin.com/in/md-shahadat-hossain-coder",
   },
   {
     icon: "call",
@@ -29,13 +43,6 @@ const ITEMS = [
     subtitle: "Bangladesh",
     copyValue: "Bangladesh",
     href: null,
-  },
-  {
-    icon: "code",
-    title: "GitHub",
-    subtitle: "Explore my projects",
-    copyValue: "https://github.com/shahadat-hossain99",
-    href: "https://github.com/shahadat-hossain99",
   },
 ];
 
@@ -226,7 +233,7 @@ const Contact = () => {
                       <p className="font-medium text-base-content leading-tight">
                         {item.title}
                       </p>
-                      <p className="text-sm text-base-content/60 leading-snug break-words">
+                      <p className="text-sm text-base-content/60 leading-snug wrap-break-word">
                         {item.subtitle}
                       </p>
                     </div>

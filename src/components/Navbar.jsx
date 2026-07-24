@@ -19,12 +19,12 @@ const Navbar = () => {
   const [theme, setTheme] = useState("shahadat");
   const [mounted, setMounted] = useState(false);
   const [activeSection, setActiveSection] = useState("Home");
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
     const savedTheme = localStorage.getItem("theme") || "shahadat";
-    console.log("[Navbar] Initializing theme:", savedTheme);
     setTheme(savedTheme);
     document.documentElement.setAttribute("data-theme", savedTheme);
 
@@ -34,78 +34,65 @@ const Navbar = () => {
 
     gsap.registerPlugin(ScrollTrigger);
 
-    gsap.fromTo(
-      headerRef.current,
-      { y: -100, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1, ease: "power4.out", delay: 0.5 },
-    );
+    // Initial entrance animation
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        headerRef.current,
+        { y: -100, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1, ease: "power4.out", delay: 0.2 },
+      );
 
-    ScrollTrigger.create({
-      start: "top top",
-      end: "+=100",
-      onUpdate: (self) => {
-        if (self.progress > 0.1) {
-          gsap.to(headerRef.current, {
-            height: "64px",
-            backgroundColor: "var(--nav-bg-sticky)",
-            boxShadow: "0 4px 6px -1px rgb(0 0 0 / 0.1)",
-            duration: 0.3,
-          });
-        } else {
-          gsap.to(headerRef.current, {
-            height: "80px",
-            backgroundColor: "var(--nav-bg)",
-            boxShadow: "none",
-            duration: 0.3,
-          });
-        }
-      },
-    });
-
-    // Intersection Observer for Active Links
-    const observerOptions = {
-      root: null,
-      rootMargin: "-40% 0px -40% 0px",
-      threshold: 0,
-    };
-
-    const observerCallback = (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const id = entry.target.id;
-          setActiveSection(id.charAt(0).toUpperCase() + id.slice(1));
-        }
+      ScrollTrigger.create({
+        start: "top top",
+        end: "+=100",
+        onUpdate: (self) => {
+          setIsScrolled(self.progress > 0.1);
+        },
       });
-    };
+    }, headerRef);
 
+    // Observer for active nav sections
     const observer = new IntersectionObserver(
-      observerCallback,
-      observerOptions,
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            setActiveSection(id.charAt(0).toUpperCase() + id.slice(1));
+          }
+        });
+      },
+      { rootMargin: "-40% 0px -40% 0px" },
     );
 
-    const sections = navItems.map((item) => item.toLowerCase());
-
-    sections.forEach((section) => {
-      const element = document.getElementById(section);
-      if (element) observer.observe(element);
+    navItems.forEach((item) => {
+      const el = document.getElementById(item.toLowerCase());
+      if (el) observer.observe(el);
     });
 
-    return () => observer.disconnect();
+    return () => {
+      ctx.revert(); // Automatically cleans up GSAP animations & ScrollTriggers
+      observer.disconnect();
+    };
   }, []);
 
   const toggleTheme = () => {
     const newTheme = theme === "shahadat" ? "shahadat-dark" : "shahadat";
-    console.log("[Navbar] Toggling theme to:", newTheme);
+
     setTheme(newTheme);
+
     document.documentElement.setAttribute("data-theme", newTheme);
 
-    if (newTheme === "shahadat-dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
+    document.documentElement.classList.toggle(
+      "dark",
+      newTheme === "shahadat-dark",
+    );
 
     localStorage.setItem("theme", newTheme);
+  };
+  const closeDropdown = () => {
+    if (document.activeElement instanceof HTMLElement) {
+      document.activeElement.blur();
+    }
   };
 
   if (!mounted) return null;
@@ -113,14 +100,16 @@ const Navbar = () => {
   return (
     <header
       ref={headerRef}
-      className="fixed top-0 w-full z-50 backdrop-blur-md border-b border-base-content/10 transition-all duration-300 h-20 flex items-center bg-base-100/80"
+      className={`fixed top-0 w-full z-50 backdrop-blur-md border-b border-base-content/5 transition-all duration-300 flex items-center bg-base-100/80 ${
+        isScrolled ? "h-18 shadow-md" : "h-20 lg:h-24 shadow-none"
+      }`}
     >
-      <nav className="max-w-7xl mx-auto w-full flex justify-between items-center px-4 md:px-9">
+      <nav className="max-w-7xl mx-auto w-full flex justify-between items-center px-4 md:px-12">
         {/* Logo */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
           className="text-xl sm:text-2xl lg:text-3xl font-extrabold font-mono tracking-tight"
         >
           <span className="text-primary">&lt;</span>
@@ -128,14 +117,14 @@ const Navbar = () => {
           <span className="text-primary">/&gt;</span>
         </motion.div>
 
-        {/* Desktop Links (Hidden on Tablet/Mobile, visible at lg: 1024px) */}
+        {/* Desktop Navigation */}
         <div className="hidden lg:flex gap-6 lg:gap-8 font-display text-sm tracking-wide">
           {navItems.map((item, i) => (
             <motion.a
               key={item}
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 1 + i * 0.1 }}
+              transition={{ duration: 0.5, delay: 0.5 + i * 0.08 }}
               className={`relative group font-medium transition-colors ${
                 activeSection === item
                   ? "text-primary"
@@ -148,14 +137,14 @@ const Navbar = () => {
                 className={`absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300 ${
                   activeSection === item ? "w-full" : "w-0 group-hover:w-full"
                 }`}
-              ></span>
+              />
             </motion.a>
           ))}
         </div>
 
-        {/* Actions & Mobile/Tablet Trigger */}
+        {/* Actions & Mobile Trigger */}
         <div className="flex items-center gap-2 md:gap-3">
-          {/* Theme Switcher Button */}
+          {/* Theme Button */}
           <motion.button
             onClick={toggleTheme}
             whileHover={{ scale: 1.1, rotate: 10 }}
@@ -168,7 +157,7 @@ const Navbar = () => {
             </span>
           </motion.button>
 
-          {/* Mobile & Tablet Dropdown Menu (Visible under 1024px) */}
+          {/* Mobile Dropdown Menu */}
           <div className="dropdown dropdown-end lg:hidden">
             <label
               tabIndex={0}
@@ -182,7 +171,7 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content mt-3 z-1 p-4 shadow-2xl bg-base-100/95 backdrop-blur-xl rounded-2xl w-64 border border-base-200 font-display space-y-2"
             >
               {navItems.map((item) => (
-                <li key={item}>
+                <li key={item} onClick={closeDropdown}>
                   <a
                     href={`#${item.toLowerCase()}`}
                     className={`font-medium block px-4 py-2 rounded-lg transition-colors ${
@@ -198,6 +187,7 @@ const Navbar = () => {
               <li className="pt-2 mt-2 border-t border-base-200 sm:hidden">
                 <motion.button
                   onClick={() => {
+                    closeDropdown();
                     document
                       .getElementById("contact")
                       ?.scrollIntoView({ behavior: "smooth" });
@@ -212,7 +202,7 @@ const Navbar = () => {
             </ul>
           </div>
 
-          {/* Hire Me CTA Button */}
+          {/* CTA Button */}
           <motion.button
             onClick={() => {
               document
