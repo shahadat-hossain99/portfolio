@@ -1,24 +1,16 @@
 "use client";
+
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const skillData = [
-  // Frontend
+  // ==========================================
+  // FRONTEND
+  // ==========================================
   {
-    name: "HTML5",
+    name: "Next.js",
     category: "Frontend",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
-  },
-
-  {
-    name: "CSS3",
-    category: "Frontend",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
-  },
-  {
-    name: "JavaScript",
-    category: "Frontend",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
   },
   {
     name: "React",
@@ -26,14 +18,29 @@ const skillData = [
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
   },
   {
-    name: "Next.js",
+    name: "TypeScript",
     category: "Frontend",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+  },
+  {
+    name: "JavaScript",
+    category: "Frontend",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
   },
   {
     name: "Tailwind CSS",
     category: "Frontend",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
+  },
+  {
+    name: "HTML5",
+    category: "Frontend",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
+  },
+  {
+    name: "CSS3",
+    category: "Frontend",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
   },
   {
     name: "daisyUI",
@@ -43,8 +50,8 @@ const skillData = [
   {
     name: "HeroUI",
     category: "Frontend",
-    icon: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcBAMAAACAI8KnAAAALVBMVEVHcEwAAAAAAAAAAAAAAABISEjg4OD///+zs7OAgIAmJibIyMhmZmZvb2/z8/O5H8rKAAAABHRSTlMAj93017y3cAAAAHhJREFUeAFjYBAycYECZ0UGBmYXJGDAIILMdWRQQeY6MZggc50ZXFAAjBuCwg0rQeZ6lCNzPcvLS7y2wrnHgdz2WmTuvnJkbo07CvcJMvc6KtcDlesSV4LCdQlB5bpgcLNQuJUoHvSEeQEFoAUOWtChBSxasKNFCgCBjHJ7JPkpYAAAAABJRU5ErkJggg==",
-  }, // Note: You may want to use a local SVG for this
+    icon: "https://avatars.githubusercontent.com/u/139895814?s=200&v=4",
+  },
   {
     name: "Framer Motion",
     category: "Frontend",
@@ -53,15 +60,55 @@ const skillData = [
   {
     name: "GSAP",
     category: "Frontend",
-    icon: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3NTc3Nzc3OC83Nzc3NzA1Kzc3Kzc3NTc3NzcyMjI3NzU1NTI4Nzc2Nzc1Nf/AABEIABwAHAMBEQACEQEDEQH/xAAYAAADAQEAAAAAAAAAAAAAAAAFBgcIAv/EADEQAAECBAQEBAQHAAAAAAAAAAECAwQFERIABhMhFDFBUQcVYaEWInGBMjM0QnKisf/EABoBAAMAAwEAAAAAAAAAAAAAAAMEBQECBgD/xAAnEQABAwMDAwQDAAAAAAAAAAABAAIDBBESBRMhMUFRFCKh0XHB8P/aAAwDAQACEQMRAD8AQsk5Rh5rCGYTIrLJUUtNINLqcyT9f8wjU1JYcWrn9W1Z9O/Zh69yi858Nm3lwy5KtTQW6lDyHDcEJP7x127YHFWnnNaUOryOBE/Pj6TXD+E+XHYHQIig9b+p1fmr3p+H2wD10t7pqKtmc656KM5ilD0hncXK4lQW5DOW3gUChSoP3BBxWjeJGBw7quxwc0OCdvDGbrcaVKVw7q0tqK0OoTVKQeiu29aYQrYuc7rmtbohuCcOHPb6R/OOcHstvQbMPBOqKnErcccSUoWgHdCT1Pr09a4FT0wlBJK9ptC2Vpc4qgszdLch818vmFNO/heHOvyrS3v98K7fvxuP0nY4sTjdZrzLOHZ/PYyavIDaoly4IBrakABIr1oAN8XYoxGwNHZV2NwaGqn+FCIdWXQWaausrWpzu6e1MTK2+7yuX1ZrzV+7pYW/vynePblaUQHm+lTjGuG1KfnV+WnrzwszPnHx8ItIx/OPj4TONsBTizH4j8J8cTjgLNHX3s5X0F/9rsX6a+y3JVYb7YuhMonExkz5flkW5DrUKKt3CvqDscEfGyQWcLr0sMcos8XXc5ns0njqHJrGuRBbFEBVAlPeiRsMYjiZGLNFlmOJkQswWRP49zVwHBedROjbbXa+n86Xe+NPTQ3yxWNmO97JbwdFX//Z",
+    icon: "https://cdn.worldvectorlogo.com/logos/gsap-greensock.svg",
   },
 
-  // Tools & Others
+  // ==========================================
+  // BACKEND
+  // ==========================================
   {
-    name: "Git",
-    category: "Tools",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+    name: "Node.js",
+    category: "Backend",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
   },
+  {
+    name: "Express.js",
+    category: "Backend",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
+  },
+  {
+    name: "MongoDB",
+    category: "Backend",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+  },
+  {
+    name: "REST API",
+    category: "Backend",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg",
+  },
+
+  // ==========================================
+  // AUTHENTICATION & PAYMENTS
+  // ==========================================
+  {
+    name: "Better Auth",
+    category: "Authentication & Payments",
+    icon: "/icons/auth.png",
+  },
+  {
+    name: "JWT",
+    category: "Authentication & Payments",
+    icon: "/icons/jwt.png",
+  },
+  {
+    name: "Stripe",
+    category: "Authentication & Payments",
+    icon: "/icons/stripe.png",
+  },
+
+  // ==========================================
+  // TOOLS
+  // ==========================================
   {
     name: "GitHub",
     category: "Tools",
@@ -71,6 +118,11 @@ const skillData = [
     name: "VS Code",
     category: "Tools",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg",
+  },
+  {
+    name: "Cursor AI",
+    category: "Tools",
+    icon: "https://www.cursor.com/favicon.ico",
   },
   {
     name: "Figma",
@@ -109,38 +161,58 @@ const skillData = [
   },
 ];
 
+const categories = [
+  "Frontend",
+  "Backend",
+  "Authentication & Payments",
+  "Tools",
+];
+
 const Skills = () => {
   const [activeTab, setActiveTab] = useState("Frontend");
-  const categories = ["Frontend", "Backend", "Tools"];
 
   const filteredSkills = skillData.filter(
     (skill) => skill.category === activeTab,
   );
 
   return (
-    <section id="skills" className="py-[120px] px-4 bg-base-100">
-      <div className="max-w-[1200px] mx-auto">
-        <div className="text-center mb-12">
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <span className="w-2 h-2 rounded-full bg-primary/40 animate-pulse"></span>
-            <span className="text-xs font-bold tracking-[0.2em] text-base-content/60 uppercase">
+    <section
+      id="skills"
+      className="w-full overflow-hidden bg-base-100 px-4 py-20 sm:px-6 sm:py-24 md:py-28 lg:px-8 lg:py-[120px]"
+    >
+      <div className="mx-auto w-full max-w-[1200px]">
+        {/* ================================
+            SECTION HEADER
+        ================================= */}
+        <div className="mb-10 text-center sm:mb-12 md:mb-16">
+          {/* Small Label */}
+          <div className="mb-4 flex items-center justify-center gap-2">
+            <span className="h-2 w-2 shrink-0 animate-pulse rounded-full bg-primary/40" />
+
+            <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-base-content/60 sm:text-xs sm:tracking-[0.2em]">
               My Expertise
             </span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-10 font-display">
+
+          {/* Main Heading */}
+          <h2 className="mb-7 font-display text-3xl font-bold leading-tight sm:text-4xl md:mb-9 md:text-5xl">
             Skills & Technologies
           </h2>
 
-          {/* Tab Controls */}
-          <div className="inline-flex p-1.5 bg-base-200/50 rounded-full border border-base-200 backdrop-blur-sm">
+          {/* ================================
+              RESPONSIVE TAB CONTROLS
+          ================================= */}
+          <div className="mx-auto grid w-full max-w-[620px] grid-cols-2 gap-2 rounded-2xl border border-base-200 bg-base-200/50 p-2 backdrop-blur-sm sm:inline-flex sm:w-auto sm:max-w-none sm:flex-wrap sm:justify-center sm:rounded-full">
             {categories.map((tab) => (
               <button
                 key={tab}
+                type="button"
                 onClick={() => setActiveTab(tab)}
-                className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
+                aria-pressed={activeTab === tab}
+                className={`min-h-11 rounded-xl px-3 py-2.5 text-xs font-medium leading-tight transition-all duration-300 sm:min-h-0 sm:rounded-full sm:px-5 sm:py-2.5 sm:text-sm md:px-6 ${
                   activeTab === tab
                     ? "bg-primary text-primary-content shadow-lg shadow-primary/20"
-                    : "text-base-content/60 hover:text-primary"
+                    : "text-base-content/60 hover:bg-base-100/70 hover:text-primary"
                 }`}
               >
                 {tab}
@@ -149,70 +221,43 @@ const Skills = () => {
           </div>
         </div>
 
-        {/* Dynamic Content Area */}
-        <div className="min-h-[300px]">
+        {/* ================================
+            SKILLS GRID
+        ================================= */}
+        <div className="w-full">
           <AnimatePresence mode="wait">
-            {activeTab === "Backend" ? (
-              // Under Construction State
-              <motion.div
-                key="under-construction"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                className="flex flex-col items-center justify-center py-10 text-center"
-              >
-                <div className="w-20 h-20 mb-6 bg-base-200 rounded-full flex items-center justify-center border border-dashed border-primary/40">
-                  <span className="material-symbols-outlined text-4xl text-primary animate-spin-slow">
-                    settings
-                  </span>
-                </div>
-                <h3 className="text-2xl font-bold mb-2">
-                  Backend Journey Starting Soon
-                </h3>
-                <p className="text-base-content/60 max-w-md mx-auto">
-                  I am currently mastering the Frontend world before diving into
-                  Node.js, Express, and MongoDB. Building a strong foundation
-                  first!
-                </p>
-                <div className="mt-8 flex gap-3">
-                  <div className="badge badge-outline p-4 opacity-50">
-                    Node.js
-                  </div>
-                  <div className="badge badge-outline p-4 opacity-50">
-                    Express
-                  </div>
-                  <div className="badge badge-outline p-4 opacity-50">
-                    MongoDB
-                  </div>
-                </div>
-              </motion.div>
-            ) : (
-              // Standard Skills Grid
-              <motion.div
-                key={activeTab}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6"
-              >
-                {filteredSkills.map((skill) => (
-                  <motion.div
-                    key={skill.name}
-                    whileHover={{ y: -8 }}
-                    className="bg-base-100 p-8 rounded-[2rem] border border-base-200 flex flex-col items-center gap-5 hover:border-primary/30 transition-all group"
-                  >
+            <motion.div
+              key={activeTab}
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -15 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              className="grid w-full grid-cols-2 gap-3 min-[400px]:gap-4 sm:grid-cols-3 sm:gap-5 md:grid-cols-4 md:gap-6 lg:grid-cols-5"
+            >
+              {filteredSkills.map((skill) => (
+                <motion.div
+                  key={skill.name}
+                  whileHover={{ y: -6 }}
+                  transition={{ duration: 0.25 }}
+                  className="group flex min-h-[140px] w-full min-w-0 flex-col items-center justify-center gap-3 overflow-hidden rounded-2xl border border-base-200 bg-base-100 p-4 text-center transition-all duration-300 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 min-[400px]:min-h-[150px] sm:min-h-[165px] sm:gap-4 sm:rounded-[1.75rem] sm:p-5 md:min-h-[175px] md:p-6 lg:min-h-[185px] lg:rounded-[2rem] lg:p-7"
+                >
+                  {/* Skill Icon */}
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center sm:h-12 sm:w-12 md:h-14 md:w-14">
                     <img
                       src={skill.icon}
-                      alt={skill.name}
-                      className="w-12 h-12 object-contain group-hover:scale-110 transition-transform"
+                      alt={`${skill.name} logo`}
+                      loading="lazy"
+                      className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-110"
                     />
-                    <span className="font-semibold text-sm text-base-content/70">
-                      {skill.name}
-                    </span>
-                  </motion.div>
-                ))}
-              </motion.div>
-            )}
+                  </div>
+
+                  {/* Skill Name */}
+                  <span className="max-w-full break-words px-1 text-[11px] font-semibold leading-tight text-base-content/70 min-[400px]:text-xs sm:text-sm">
+                    {skill.name}
+                  </span>
+                </motion.div>
+              ))}
+            </motion.div>
           </AnimatePresence>
         </div>
       </div>

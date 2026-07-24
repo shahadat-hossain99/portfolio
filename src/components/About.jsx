@@ -69,9 +69,9 @@ const About = () => {
     <section
       id="about"
       ref={containerRef}
-      className="overflow-hidden bg-base-100/50 py-20 sm:py-24 md:py-28 lg:py-[120px]"
+      className="overflow-hidden bg-base-100/50 py-20 sm:py-24 md:py-28 lg:py-30"
     >
-      <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-300 px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="about-header mb-12 text-center sm:mb-14 md:mb-16 lg:mb-20">
           <h2 className="mb-5 font-display text-3xl font-bold sm:text-4xl md:text-5xl">
@@ -168,7 +168,7 @@ const About = () => {
                   delay: i * 0.1,
                   ease: "easeOut",
                 }}
-                className="group flex min-h-[150px] flex-col items-center justify-center rounded-2xl border border-base-200 bg-base-100 p-5 text-center shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/5 sm:min-h-[170px] sm:rounded-3xl sm:p-6 md:min-h-[180px] md:p-7 lg:rounded-[32px] lg:p-8"
+                className="group flex min-h-37.5 flex-col items-center justify-center rounded-2xl border border-base-200 bg-base-100 p-5 text-center shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/5 sm:min-h-42.5 sm:rounded-3xl sm:p-6 md:min-h-45 md:p-7 lg:rounded-4xl lg:p-8"
               >
                 <span
                   data-value={stat.value}
@@ -177,7 +177,7 @@ const About = () => {
                   {stat.value}+
                 </span>
 
-                <span className="max-w-[120px] text-[9px] font-medium uppercase tracking-[0.08em] text-base-content/50 sm:text-[10px] md:text-xs">
+                <span className="max-w-30 text-[9px] font-medium uppercase tracking-[0.08em] text-base-content/50 sm:text-[10px] md:text-xs">
                   {stat.label}
                 </span>
               </motion.div>
