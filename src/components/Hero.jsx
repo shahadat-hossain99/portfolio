@@ -70,10 +70,10 @@ const Hero = () => {
     <section
       id="home"
       ref={containerRef}
-      className="min-h-screen pt-28 pb-16 flex flex-col md:flex-row items-center justify-between gap-12"
+      className="min-h-screen pt-28 pb-16 flex flex-col lg:flex-row items-center justify-between gap-12"
     >
       {/* Left Content Side */}
-      <div className="md:w-1/2 space-y-8">
+      <div className="w-full lg:w-1/2 space-y-8">
         {/* Availability Badge with Pulse Animation */}
         <div className="hero-badge opacity-0 inline-block">
           <span className="badge badge-secondary badge-outline px-6 py-4 rounded-full font-semibold uppercase tracking-widest text-[10px] bg-secondary/5 border-secondary/30 flex items-center gap-2.5">
@@ -127,13 +127,13 @@ const Hero = () => {
       </div>
 
       {/* Right Photo Frame Side */}
-      <div className="md:w-1/2 flex justify-center relative">
+      <div className="w-full lg:w-1/2 flex justify-center relative">
         <div ref={imageRef} className="relative opacity-0">
           {/* Ambient Radial Glow */}
           <div className="absolute -top-10 -left-10 w-72 h-72 bg-primary/20 rounded-full opacity-30 blur-[100px] animate-pulse pointer-events-none" />
 
           {/* Organic Morphing Blob Frame */}
-          <div className="w-72 h-72 sm:w-96 sm:h-96 md:w-[450px] md:h-[450px] rounded-[40%_60%_70%_30%/40%_50%_60%_40%] overflow-hidden bg-base-100 border-[8px] border-base-200/50 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.3)] relative z-10 backdrop-blur-sm">
+          <div className="w-72 h-72 sm:w-96 sm:h-96 md:w-112.5 md:h-112.5 rounded-[40%_60%_70%_30%/40%_50%_60%_40%] overflow-hidden bg-base-100 border-8 border-base-200/50 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.3)] relative z-10 backdrop-blur-sm">
             <Image
               src={HeroImg}
               alt="Shahadat Hossain"

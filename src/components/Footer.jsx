@@ -28,7 +28,7 @@ const Footer = () => {
 
   return (
     <footer className="w-full py-12 md:py-16 bg-base-100 border-t border-base-content/5 px-4 mt-20">
-      <div className="max-w-[1200px] mx-auto">
+      <div className="max-w-300 mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center gap-8 md:gap-10">
           {/* Logo and Copyright Section */}
           <div className="flex flex-col items-center md:items-start gap-3 text-center md:text-left">
