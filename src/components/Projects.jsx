@@ -58,11 +58,19 @@ const Projects = () => {
       {/* Header Section */}
       <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-16 gap-6">
         <div className="text-center md:text-left">
+          {/* Badge Style Tag */}
+          <div className="mb-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/20 bg-primary/10 backdrop-blur-sm">
+            <span className="h-2 w-2 shrink-0 animate-pulse rounded-full bg-primary" />
+            <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-primary sm:text-xs">
+              My Portfolio
+            </span>
+          </div>
+
           <motion.h2
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-bold mb-4 tracking-tight"
+            className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 tracking-tight"
           >
             Featured Projects
           </motion.h2>

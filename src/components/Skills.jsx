@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 const skillData = [
   // ==========================================
@@ -178,31 +179,30 @@ const Skills = () => {
   return (
     <section
       id="skills"
-      className="w-full overflow-hidden bg-base-100 px-4 py-20 sm:px-6 sm:py-24 md:py-28 lg:px-8 lg:py-[120px]"
+      className="w-full overflow-hidden bg-base-100 px-4 py-20 sm:px-6 sm:py-24 md:py-28 lg:px-8 lg:py-30"
     >
-      <div className="mx-auto w-full max-w-[1200px]">
+      <div className="mx-auto w-full max-w-300">
         {/* ================================
             SECTION HEADER
         ================================= */}
         <div className="mb-10 text-center sm:mb-12 md:mb-16">
-          {/* Small Label */}
-          <div className="mb-4 flex items-center justify-center gap-2">
-            <span className="h-2 w-2 shrink-0 animate-pulse rounded-full bg-primary/40" />
-
-            <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-base-content/60 sm:text-xs sm:tracking-[0.2em]">
+          {/* Badge Style Tag */}
+          <div className="mb-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/20 bg-primary/10 backdrop-blur-sm">
+            <span className="h-2 w-2 shrink-0 animate-pulse rounded-full bg-primary" />
+            <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-primary sm:text-xs">
               My Expertise
             </span>
           </div>
 
           {/* Main Heading */}
-          <h2 className="mb-6 font-display text-3xl font-bold leading-tight  md:mb-9 sm:text-4xl lg:text-5xl">
+          <h2 className="mb-6 font-display text-3xl font-bold leading-tight md:mb-9 sm:text-4xl lg:text-5xl">
             Skills & Technologies
           </h2>
 
           {/* ================================
               RESPONSIVE TAB CONTROLS
           ================================= */}
-          <div className="mx-auto grid w-full max-w-[620px] grid-cols-2 gap-2 rounded-2xl border border-base-200 bg-base-200/50 p-2 backdrop-blur-sm sm:inline-flex sm:w-auto sm:max-w-none sm:flex-wrap sm:justify-center sm:rounded-full">
+          <div className="mx-auto grid w-full max-w-155 grid-cols-2 gap-2 rounded-2xl border border-base-200 bg-base-200/50 p-2 backdrop-blur-sm sm:inline-flex sm:w-auto sm:max-w-none sm:flex-wrap sm:justify-center sm:rounded-full">
             {categories.map((tab) => (
               <button
                 key={tab}
@@ -239,20 +239,22 @@ const Skills = () => {
                   key={skill.name}
                   whileHover={{ y: -6 }}
                   transition={{ duration: 0.25 }}
-                  className="group flex min-h-[140px] w-full min-w-0 flex-col items-center justify-center gap-3 overflow-hidden rounded-2xl border border-base-200 bg-base-100 p-4 text-center transition-all duration-300 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 min-[400px]:min-h-[150px] sm:min-h-[165px] sm:gap-4 sm:rounded-[1.75rem] sm:p-5 md:min-h-[175px] md:p-6 lg:min-h-[185px] lg:rounded-[2rem] lg:p-7"
+                  className="group flex min-h-35 w-full min-w-0 flex-col items-center justify-center gap-3 overflow-hidden rounded-2xl border border-base-200 bg-base-100 p-4 text-center transition-all duration-300 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 min-[400px]:min-h-37.5 sm:min-h-41.25 sm:gap-4 sm:rounded-[1.75rem] sm:p-5 md:min-h-43.75 md:p-6 lg:min-h-46.25 lg:rounded-4xl lg:p-7"
                 >
                   {/* Skill Icon */}
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center sm:h-12 sm:w-12 md:h-14 md:w-14">
-                    <img
+                  <div className="relative flex h-10 w-10 shrink-0 items-center justify-center sm:h-12 sm:w-12 md:h-14 md:w-14">
+                    <Image
                       src={skill.icon}
                       alt={`${skill.name} logo`}
-                      loading="lazy"
+                      width={56}
+                      height={56}
+                      unoptimized={skill.icon.endsWith(".svg")}
                       className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-110"
                     />
                   </div>
 
                   {/* Skill Name */}
-                  <span className="max-w-full break-words px-1 text-[11px] font-semibold leading-tight text-base-content/70 min-[400px]:text-xs sm:text-sm">
+                  <span className="max-w-full wrap-break-word px-1 text-[11px] font-semibold leading-tight text-base-content/70 min-[400px]:text-xs sm:text-sm">
                     {skill.name}
                   </span>
                 </motion.div>

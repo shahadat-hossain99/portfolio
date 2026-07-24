@@ -74,8 +74,16 @@ const About = () => {
       <div className="mx-auto max-w-300 px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="about-header mb-12 text-center sm:mb-14 md:mb-16 lg:mb-20">
-          <h2 className="mb-5 font-display text-3xl font-bold sm:text-4xl md:text-5xl">
-            About Me
+          {/* Badge Style Tag */}
+          <div className="mb-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/20 bg-primary/10 backdrop-blur-sm">
+            <span className="h-2 w-2 shrink-0 animate-pulse rounded-full bg-primary" />
+            <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-primary sm:text-xs">
+              About Me
+            </span>
+          </div>
+
+          <h2 className="mb-6 font-display text-3xl font-bold md:text-4xl xl:text-5xl">
+            About Myself
           </h2>
 
           <div className="mx-auto h-1.5 w-20 rounded-full bg-primary sm:w-24" />
@@ -96,8 +104,8 @@ const About = () => {
             className="space-y-6 text-left lg:col-span-7"
           >
             <h3 className="mb-4 text-2xl font-bold leading-tight text-primary sm:text-3xl md:text-4xl lg:text-3xl">
-              I&apos;m Md. Shahadat Hossain, a Frontend Developer and MERN Stack
-              Developer from Bangladesh.
+              I&apos;m Md. Shahadat Hossain, a {/*   Frontend Developer and */}{" "}
+              MERN Stack Developer from Bangladesh.
             </h3>
 
             <p className="text-base leading-relaxed text-base-content/80 sm:text-lg">
