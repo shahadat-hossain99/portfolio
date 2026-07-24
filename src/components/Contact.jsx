@@ -37,7 +37,6 @@ const ITEMS = [
     copyValue: "https://github.com/shahadat-hossain99",
     href: "https://github.com/shahadat-hossain99",
   },
-  // TODO: add LinkedIn (and anything else — Contra, X, etc.) once the URL is available.
 ];
 
 const FIELDS = [
@@ -180,15 +179,15 @@ const Contact = () => {
           whileInView="show"
           viewport={{ once: true }}
         >
-          <div className="mb-4 flex items-center  gap-2">
-            <span className="h-2 w-2 shrink-0 animate-pulse rounded-full bg-primary/40" />
-
-            <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-base-content/60 sm:text-xs sm:tracking-[0.2em]">
+          {/* Badge Style Tag */}
+          <div className="mb-6 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/20 bg-primary/10 backdrop-blur-sm">
+            <span className="h-2 w-2 shrink-0 animate-pulse rounded-full bg-primary" />
+            <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-primary sm:text-xs">
               Get In Touch
             </span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 font-display  leading-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 font-display leading-tight">
             Let&apos;s Connect
           </h2>
           <p className="text-base sm:text-lg text-base-content/70 max-w-md leading-relaxed">
@@ -213,14 +212,11 @@ const Contact = () => {
                   viewport={{ once: true }}
                   transition={{ delay: 0.15 + i * 0.1 }}
                   whileHover={{ x: 6 }}
-                  className="flex items-center gap-2 p-4 rounded-xl border border-base-200 bg-base-200/40 backdrop-blur-sm hover:border-primary/30 transition-colors duration-300 group"
+                  onClick={() => handleCopy(item.copyValue, item.title)}
+                  title="Click to copy"
+                  className="flex items-center gap-2 p-4 rounded-xl border border-base-200 bg-base-200/40 backdrop-blur-sm hover:border-primary/30 transition-colors duration-300 group cursor-pointer"
                 >
-                  <button
-                    type="button"
-                    onClick={() => handleCopy(item.copyValue, item.title)}
-                    title="Copy to clipboard"
-                    className="flex-1 min-w-0 flex items-center gap-4 text-left cursor-pointer"
-                  >
+                  <div className="flex-1 min-w-0 flex items-center gap-4 text-left">
                     <span className="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">
                       <span className="material-symbols-outlined text-xl">
                         {item.icon}
@@ -234,7 +230,7 @@ const Contact = () => {
                         {item.subtitle}
                       </p>
                     </div>
-                  </button>
+                  </div>
 
                   <div className="flex items-center gap-0.5 shrink-0">
                     <span
@@ -253,6 +249,7 @@ const Contact = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         title={`Open ${item.title}`}
+                        onClick={(e) => e.stopPropagation()}
                         className="w-7 h-7 rounded-md flex items-center justify-center text-base-content/30 hover:text-primary hover:bg-primary/10 transition-all duration-300"
                       >
                         <span className="material-symbols-outlined text-sm">
