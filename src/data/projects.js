@@ -67,7 +67,7 @@ export const projects = [
     title: "TrailNest",
     description:
       "A full-stack outdoor gear and campsite booking platform. Users browse campsites and rentable gear on an interactive map, book them for a date range with conflict-checked availability, manage their own listings with image uploads, and track bookings from a personal dashboard with visual analytics.",
-    image: "/projects/trailnest.jpg",
+    image: "/projects/trailnest02.jpg",
     tags: [
       "Next.js 16",
       "TypeScript",
