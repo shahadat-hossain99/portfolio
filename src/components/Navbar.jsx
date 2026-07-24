@@ -193,7 +193,7 @@ const Navbar = () => {
                 </li>
               ))}
               <li className="pt-2 mt-2 border-t border-base-200">
-                <button
+                <motion.button
                   onClick={() => {
                     document
                       .getElementById("contact")
@@ -204,7 +204,7 @@ const Navbar = () => {
                   className="btn btn-primary btn-sm w-full rounded-xl"
                 >
                   Hire Me
-                </button>
+                </motion.button>
               </li>
             </ul>
           </div>
