@@ -197,7 +197,7 @@ export default function ProjectDetailClient({
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn btn-outline w-full rounded-2xl gap-2 font-semibold hover:scale-[1.02] active:scale-[0.98] transition-all"
+                  className="btn btn-outline border-primary w-full rounded-2xl gap-2 font-semibold hover:scale-[1.02] active:scale-[0.98] transition-all"
                 >
                   GitHub Repository
                   <span className="material-symbols-outlined text-lg">
