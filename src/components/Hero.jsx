@@ -109,7 +109,7 @@ const Hero = () => {
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row gap-6 pt-2">
           <a
-            href="/resume.pdf"
+            href="/shahadat-hossain_resume.pdf"
             download="Shahadat_Hossain_Resume.pdf"
             className="hero-btn opacity-0 btn btn-primary px-10 h-14 md:h-16 rounded-2xl flex items-center justify-center gap-3 shadow-lg hover:shadow-primary/30 hover:scale-105 active:scale-95 transition-all w-full sm:w-auto text-lg font-semibold"
           >
